@@ -1,0 +1,1 @@
+// export { default as SliderOne } from "../assets/images/slider-1.svg";

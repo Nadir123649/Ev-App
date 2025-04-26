@@ -1,28 +1,28 @@
-import { useGoogleLogin } from '@react-oauth/google';
+// import { useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 
 const GoogleLoginButton = () => {
-    const login = useGoogleLogin({
-        onSuccess: async (tokenResponse) => {
-            try {
-                const { access_token } = tokenResponse;
-                // Send token to your backend API
-                const res = await axios.post('https://mobile.cova.ai/auth/sso-login', {
-                    token: access_token,
-                    provider: 'google',
-                });
+    // const login = useGoogleLogin({
+    //     onSuccess: async (tokenResponse) => {
+    //         try {
+    //             const { access_token } = tokenResponse;
+    //             // Send token to your backend API
+    //             const res = await axios.post('https://mobile.cova.ai/auth/sso-login', {
+    //                 token: access_token,
+    //                 provider: 'google',
+    //             });
 
-                console.log('Login Success:', res.data);
-            } catch (err) {
-                console.error('Login failed:', err);
-            }
-        },
-        onError: () => console.error('Login Failed'),
-    });
+    //             console.log('Login Success:', res.data);
+    //         } catch (err) {
+    //             console.error('Login failed:', err);
+    //         }
+    //     },
+    //     onError: () => console.error('Login Failed'),
+    // });
 
     return (
         <button
-            onClick={() => login()}
+            // onClick={() => login()}
             className="bg-[#EAEAEABF]  md:px-6 px-8 py-2 rounded-[8px] flex items-center border-[1px] border-[#CACACA]"
         >
             <svg

@@ -21,7 +21,7 @@ dist/
 
 
 #package.json
-package.json
+package-lock.json
 
 # Maven
 target/

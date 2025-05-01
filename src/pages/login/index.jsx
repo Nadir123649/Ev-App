@@ -8,8 +8,7 @@ import { DotLoader } from "react-spinners";
 import { login } from "../../service/services";
 import toast from "react-hot-toast";
 import loginbgsvg from "../../assets/images/charge.svg";
-import GoogleLoginButton from "../../component/GoogleLogin";
-// import { GoogleLogin } from "react-google-login";
+import GoogleLoginButton from "../../component/GoogleLoginButton";
 
 const Login = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -31,35 +30,22 @@ const Login = () => {
     try {
       const response = await login(data);
 
-      if (response.status === 201) {
-        const { token } = response.data;
-        toast.success("User logged in successfully!");
+      if (response.status === 200 && response.data?.success) {
+        const token = response.data.data.token;
+        console.log("Token:", token);
         localStorage.setItem("accessToken", token);
+        console.log("User logged in successfully:", token);
+        toast.success("User logged in successfully!");
         navigate("/home");
       } else {
-        toast.error("Invalid email or password.");
+        toast.error(response.data?.message || "Invalid email or password.");
       }
     } catch (error) {
-      toast.error("Email or password is incorrect");
+      toast.error(error?.response?.data?.message || "Email or password is incorrect");
     } finally {
       setLoading(false);
     }
   };
-
-
-  const responseGoogleSuccess = (response) => {
-    const tokenId = response.tokenId; // You'll need this tokenId for your backend
-    // You can send tokenId to your server for further validation or user creation
-    toast.success("Google login successful!");
-    localStorage.setItem("accessToken", tokenId);
-    navigate("/home");
-  };
-
-  const responseGoogleFailure = (error) => {
-    console.error("Google login failed", error);
-    toast.error("Google login failed. Please try again.");
-  };
-
 
   return (
     <div className=" flex items-center justify-center bg-contain bg-no-repeat bg-bottom relative sm:bg-[url('../../assets/images/bglogin.jpg')] bg-[url('../../assets/images/loginbgmobile.jpg')] overflow-x-hidden z-50">
@@ -129,9 +115,9 @@ const Login = () => {
                   </span>
                 </label>
 
-                <Link className="text-blue text-sm font-bold cursor-pointer">
+                {/* <Link className="text-blue text-sm font-bold cursor-pointer">
                   Forgot Password?
-                </Link>
+                </Link> */}
               </div>
               <div>
                 <button
@@ -143,18 +129,11 @@ const Login = () => {
                 </button>
               </div>
 
-              <div className="flex justify-center space-x-4 pt-2">
-                <GoogleLoginButton />
-                {/* <GoogleLogin
-                  clientId="452291029946-4c6efvvso8sinalku8hs8fvl9ocj8uss.apps.googleusercontent.com"
-                  buttonText="Login with Google"
-                  onSuccess={responseGoogleSuccess}
-                  onFailure={responseGoogleFailure}
-                  cookiePolicy="single_host_origin"
-                /> */}
-              </div>
             </div>
           </form>
+          <div className="flex justify-center space-x-4 pt-2">
+            <GoogleLoginButton />
+          </div>
         </div>
 
         <div>

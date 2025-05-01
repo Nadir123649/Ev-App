@@ -8,7 +8,7 @@ import prayerstation from "../assets/images/prayerstation.svg";
 import luchstation from "../assets/images/lunchstation.svg";
 import waitingarea from "../assets/images/waitingarea.svg";
 import cartstation from "../assets/images/cartstation.svg";
-const ChargingStations = () => {
+const ChargingStations = ({stations}) => {
   return (
     <div>
       <div className="lg:w-custom w-[95%] mx-auto pt-10">
@@ -16,7 +16,7 @@ const ChargingStations = () => {
           <div className="flex gap-5">
             <div>
               <h1 className="font-bold md:text-[28px] text-xl">
-                PSO EV Charging Station
+              {stations.name ? stations.name : "Stations"}
               </h1>
               <h1 className="font-bold text-xl text-blue">Johar Town Lahore</h1>
             </div>

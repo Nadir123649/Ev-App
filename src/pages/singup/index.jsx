@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { registeration } from "../../service/services";
 import singupsvg from "../../assets/images/charge.svg";
-import google from "../../assets/images/google.svg"
+import GoogleLoginButton from "../../component/GoogleLoginButton";
 
 const Signup = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -29,14 +29,14 @@ const Signup = () => {
     try {
       const response = await registeration(data);
 
-      if (response.status === 201) {
+      if (response.status === 200) {
         toast.success("User Registration successful!");
         setTimeout(() => navigate("/"), 1500);
       } else {
         toast.error("User Registration failed. Please try again.");
       }
     } catch (error) {
-      toast.error("Signup failed. Please try again.");
+      toast.error(error?.response?.data?.message || "User Registration failed. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -61,7 +61,7 @@ const Signup = () => {
                 type="text"
                 placeholder="Please enter username"
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none text-[#515151]"
-                {...register("userName", {
+                {...register("name", {
                   required: "Please enter your user name",
                   minLength: {
                     value: 3,
@@ -86,9 +86,10 @@ const Signup = () => {
                   },
                 })}
               />
-              {errors.email && <span className="text-red-500 text-sm">{errors.email.message}</span>}
+              {errors.email && (
+                <span className="text-red-500 text-sm">{errors.email.message}</span>
+              )}
             </div>
-
             {/* Password */}
             <div>
               <div className="mb-1 relative">
@@ -114,7 +115,6 @@ const Signup = () => {
               {errors.password && <span className="text-red-500 text-sm block mt-0">{errors.password.message}</span>}
             </div>
 
-
             <div className="flex justify-between items-center text-sm">
               <label className="relative flex items-center space-x-2 cursor-pointer">
                 <input type="checkbox" className="peer sr-only" />
@@ -127,9 +127,9 @@ const Signup = () => {
                 </span>
               </label>
 
-              <Link className="text-blue text-sm font-bold cursor-pointer">
+              {/* <Link className="text-blue text-sm font-bold cursor-pointer">
                 Forgot Password?
-              </Link>
+              </Link> */}
             </div>
 
             <div className="mt-4">
@@ -149,9 +149,7 @@ const Signup = () => {
           </form>
 
           <div className="flex justify-center space-x-4 pt-2">
-            <button className="bg-[#EAEAEABF] md:px-6 px-8 py-2 rounded-[8px] flex items-center border-[1px] border-[#CACACA]">
-            <img src={google} alt="" />
-            </button>
+            <GoogleLoginButton />
           </div>
         </div>
 

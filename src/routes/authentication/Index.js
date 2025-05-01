@@ -8,6 +8,7 @@ import Login from "../../pages/login/index.jsx";
 import ProfileSetting from "../../pages/profilesetting.jsx/index.jsx";
 import Signup from "../../pages/singup/index.jsx";
 import StationView from "../../pages/stationview/index.jsx";
+import Tracking from "../../pages/tracking/index.jsx";
 import {
   login,
   singup,
@@ -19,6 +20,7 @@ import {
   charginghistory,
   edithistory,
   cardetails,
+  tracking,
 } from "../pathName.jsx";
 
 const authRoutes = [
@@ -38,10 +40,15 @@ const authRoutes = [
     path: home,
   },
   {
-    title: "Stationview",
+    title: "Stationview/:id",
     component: StationView,
     path: stationview,
   },
+  {
+    title: "tracking/:id",
+    component: Tracking,
+    path: tracking,
+},
   {
     title: "addnew",
     component: AddCars,

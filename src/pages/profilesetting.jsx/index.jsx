@@ -1,12 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import left from "../../assets/images/right.svg";
 import user from "../../assets/images/user.svg";
 import charging from "../../assets/images/charging.svg";
 import logout from "../../assets/images/logout.svg";
 import Layout from "../../layout";
+import toast from "react-hot-toast";
 
 const ProfileSetting = () => {
+
+  const navigate = useNavigate();
+
+  const Logout = () => {
+    localStorage.clear();
+    navigate("/");
+    toast.success("Logout Successfully");
+  };
+
   return (
     <Layout>
       <main>
@@ -48,7 +58,7 @@ const ProfileSetting = () => {
           </div>
           <div className="sm:mb-20 mb-3">
             <hr className="text-[#ECECEC] mt-10 mb-5 lg:w-custom w-[95%] mx-auto" />
-            <div className="flex gap-3 items-center lg:w-custom w-[95%] mx-auto">
+            <div className="flex gap-3 items-center lg:w-custom w-[95%] mx-auto cursor-pointer" onClick={() => Logout()}>
               <img src={logout} alt="" />
               <h1 className="text-[#4D4D4D] font-semibold sm:text-xl text-lg">
                 Logout

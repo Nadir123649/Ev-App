@@ -4,53 +4,16 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation, Pagination } from "swiper/modules";
-import logokia from "../assets/images/kiasliderlogo.jpg";
-import kiaslidercar from "../assets/images/kisslidercar.jpg";
-import teslalogo from "../assets/images/sliderteslaicon.jpg";
-import teslaimg from "../assets/images/slidertesla.jpg";
-import mglogo from "../assets/images/mglogoslider.webp";
-import mgimg from "../assets/images/mgslidercar.jpg";
 import right from "../assets/images/rightarrow.svg";
 import left from "../assets/images/right.svg";
 
-const ChargingSlider = () => {
+const ChargingSlider = ({allcars,selectedCar,onCarChange}) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const swiperRef = useRef(null);
 
-  const slides = [
-    {
-      logo: logokia,
-      title: "KIA",
-      image: kiaslidercar,
-    },
-    {
-      logo: teslalogo,
-      title: "Tesla - Model 3",
-      image: teslaimg,
-    },
-    {
-      logo: mglogo,
-      title: "MG",
-      image: mgimg,
-    },
-    {
-      logo: logokia,
-      title: "KIA",
-      image: kiaslidercar,
-    },
-    {
-      logo: teslalogo,
-      title: "Tesla - Model 3",
-      image: teslaimg,
-    },
-    {
-      logo: mglogo,
-      title: "MG",
-      image: mgimg,
-    },
-  ];
+  console.log("selectedCar ",selectedCar)
 
   useEffect(() => {
     if (
@@ -66,18 +29,43 @@ const ChargingSlider = () => {
       swiperRef.current.navigation.update();
     }
   }, []);
+
+
+  useEffect(() => {
+    if (selectedCar && swiperRef.current) {
+      const index = allcars.findIndex(
+        (car) => car.name?.toLowerCase() === selectedCar.name?.toLowerCase()
+      );
+      if (index !== -1 && swiperRef.current.realIndex !== index) {
+        swiperRef.current.slideToLoop(index);
+      }
+    }
+  }, [selectedCar, allcars]);
+  
+  
+
   return (
     <>
       <main>
         <div className="relative">
           <Swiper
             onSwiper={(swiper) => {
+              console.log("swiper", swiper);
               swiperRef.current = swiper;
             }}
+            key={allcars.length}
             centeredSlides={true}
             spaceBetween={30}
             loop={true}
-            onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+            onSlideChange={(swiper) => {
+              const newCar = allcars[swiper.realIndex];
+              setActiveIndex(swiper.realIndex);
+              if (onCarChange) {
+                onCarChange(newCar);
+              }
+            }
+          }
+        
             modules={[Navigation, Pagination]}
             className="mySwiper items-center flex"
             breakpoints={{
@@ -95,7 +83,7 @@ const ChargingSlider = () => {
               },
             }}
           >
-            {slides.map((slide, index) => (
+            {allcars.map((slide, index) => (
               <SwiperSlide key={index}>
                 <div
                   className={`h-[50vh] flex flex-col justify-center items-center transition-all duration-500 ease-in-out ${
@@ -151,8 +139,8 @@ const ChargingSlider = () => {
             </div>
           </div>
           <div>
-            <button className="px-10 py-2 bg-blue text-white rounded-2xl">
-              Add To My Cars
+            <button className="px-16 py-2 bg-blue text-white rounded-2xl">
+             My Cars
             </button>
           </div>
           <div ref={nextRef} className="md:flex hidden cursor-pointer">

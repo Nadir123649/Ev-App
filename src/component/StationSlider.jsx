@@ -4,12 +4,15 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import sliderimg from "../assets/images/station.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import rightarrow from "../assets/images/right.svg";
 import phone from "../assets/images/phone.svg";
 import direction from "../assets/images/direcction.svg";
 
-const StationSlider = () => {
+const StationSlider = ({stations}) => {
+
+  const navigate = useNavigate();
+
   return (
     <div className="relative">
       <Swiper
@@ -69,7 +72,7 @@ const StationSlider = () => {
         </div>
       </div>
       <div className="bg-white rounded-full p-2 absolute right-[10%] -bottom-5 z-30">
-        <div className="bg-blue p-2 rounded-full ">
+        <div className="bg-blue p-2 rounded-full cursor-pointer" onClick={() => navigate(`/tracking/${stations.id}`)}>
           <img src={direction} alt="" />
         </div>
       </div>

@@ -19,18 +19,16 @@ const NavTab = () => {
   }, [location]);
 
   return (
-    <div className="fixed sm:bottom-4 bottom-0 left-1/2 transform -translate-x-1/2 bg-white custom-shadow sm:rounded-2xl rounded-t-2xl   px-6 h-[65px] flex items-center justify-between lg:w-[30%] sm:w-[50%]  w-full">
+    <div className="fixed sm:bottom-4 bottom-0 left-1/2 transform -translate-x-1/2 bg-white custom-shadow sm:rounded-2xl rounded-t-2xl  px-6 h-[65px] flex items-center justify-between lg:w-[30%] sm:w-[50%] w-full z-10">
       <Link to="/home">
         <div
           onClick={() => setActiveTab("home")}
-          className={`p-2 rounded-full group cursor-pointer transition-all duration-500 ease-in-out ${
-            activeTab === "home" ? "mb-12 bg-[#fff3] text-blue" : ""
-          }`}
+          className={`p-2 rounded-full group cursor-pointer transition-all duration-500 ease-in-out ${activeTab === "home" ? "mb-12 bg-[#fff3] text-blue" : ""
+            }`}
         >
           <div
-            className={`rounded-full transition-all duration-500 ease-in-out ${
-              activeTab === "home" ? "p-4 bg-[#E6F5FD]" : ""
-            }`}
+            className={`rounded-full transition-all duration-500 ease-in-out ${activeTab === "home" ? "p-4 bg-[#E6F5FD]" : ""
+              }`}
           >
             <svg
               width="28"
@@ -38,9 +36,8 @@ const NavTab = () => {
               viewBox="0 0 28 27"
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
-              className={`${
-                activeTab === "home" ? "text-blue-500" : "text-[#BEBEBE]"
-              }`}
+              className={`${activeTab === "home" ? "text-blue-500" : "text-[#BEBEBE]"
+                }`}
             >
               <g clipPath="url(#clip0_188_2343)">
                 <path
@@ -65,14 +62,12 @@ const NavTab = () => {
       <Link>
         <div
           onClick={() => setActiveTab("menu")}
-          className={`p-2 rounded-full group cursor-pointer transition-all duration-500 ease-in-out ${
-            activeTab === "menu" ? "mb-12 bg-[#fff3] text-blue" : ""
-          }`}
+          className={`p-2 rounded-full group cursor-pointer transition-all duration-500 ease-in-out ${activeTab === "menu" ? "mb-12 bg-[#fff3] text-blue" : ""
+            }`}
         >
           <div
-            className={`rounded-full transition-all duration-500 ease-in-out ${
-              activeTab === "menu" ? "p-4 bg-[#E6F5FD]" : ""
-            }`}
+            className={`rounded-full transition-all duration-500 ease-in-out ${activeTab === "menu" ? "p-4 bg-[#E6F5FD]" : ""
+              }`}
           >
             {" "}
             <svg
@@ -81,9 +76,8 @@ const NavTab = () => {
               viewBox="0 0 27 23"
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
-              className={`${
-                activeTab === "menu" ? "text-blue-500" : "text-[#BEBEBE]"
-              }`}
+              className={`${activeTab === "menu" ? "text-blue-500" : "text-[#BEBEBE]"
+                }`}
             >
               <path
                 d="M0.110529 4.63173C0.630015 2.11167 2.8627 0.210571 5.52644 0.210571H21.0005C23.6642 0.210571 25.8969 2.11167 26.4164 4.63173H0.110529ZM26.5269 6.8423V16.7899C26.5269 19.8405 24.0511 22.3163 21.0005 22.3163H5.52644C2.47585 22.3163 0 19.8405 0 16.7899V6.8423H26.5269ZM11.0529 11.2635C11.0529 10.6556 10.5555 10.1582 9.9476 10.1582H5.52644C4.91853 10.1582 4.42115 10.6556 4.42115 11.2635C4.42115 11.8714 4.91853 12.3687 5.52644 12.3687H6.63173V16.7899C6.63173 17.3978 7.12911 17.8952 7.73702 17.8952C8.34493 17.8952 8.84231 17.3978 8.84231 16.7899V12.3687H9.9476C10.5555 12.3687 11.0529 11.8714 11.0529 11.2635ZM22.1058 15.6846C22.1058 15.0767 21.6084 14.5793 21.0005 14.5793H14.3688C13.7608 14.5793 13.2635 15.0767 13.2635 15.6846C13.2635 16.2925 13.7608 16.7899 14.3688 16.7899H21.0005C21.6084 16.7899 22.1058 16.2925 22.1058 15.6846ZM22.1058 11.2635C22.1058 10.6556 21.6084 10.1582 21.0005 10.1582H14.3688C13.7608 10.1582 13.2635 10.6556 13.2635 11.2635C13.2635 11.8714 13.7608 12.3687 14.3688 12.3687H21.0005C21.6084 12.3687 22.1058 11.8714 22.1058 11.2635Z"
@@ -96,14 +90,12 @@ const NavTab = () => {
       <Link to="/car-details">
         <div
           onClick={() => setActiveTab("car")}
-          className={`p-2 rounded-full group cursor-pointer transition-all duration-500 ease-in-out ${
-            activeTab === "car" ? "mb-12 bg-[#fff3] text-blue" : ""
-          }`}
+          className={`p-2 rounded-full group cursor-pointer transition-all duration-500 ease-in-out ${activeTab === "car" ? "mb-12 bg-[#fff3] text-blue" : ""
+            }`}
         >
           <div
-            className={`rounded-full transition-all duration-500 ease-in-out ${
-              activeTab === "car" ? "p-4 bg-[#E6F5FD]" : ""
-            }`}
+            className={`rounded-full transition-all duration-500 ease-in-out ${activeTab === "car" ? "p-4 bg-[#E6F5FD]" : ""
+              }`}
           >
             {" "}
             <svg
@@ -112,9 +104,8 @@ const NavTab = () => {
               viewBox="0 0 27 27"
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
-              className={`${
-                activeTab === "car" ? "text-blue-500" : "text-[#BEBEBE]"
-              }`}
+              className={`${activeTab === "car" ? "text-blue-500" : "text-[#BEBEBE]"
+                }`}
             >
               <path
                 d="M14.7213 8.84231H19.5426C20.6821 8.84382 21.7933 9.19681 22.7248 9.85313C23.6563 10.5094 24.3626 11.4371 24.7474 12.5097L25.6902 15.1491C25.8547 15.6183 25.9949 16.0957 26.1102 16.5793H8.15372C8.26909 16.0957 8.40928 15.6183 8.57372 15.1491L9.51654 12.5097C9.90136 11.4371 10.6077 10.5094 11.5391 9.85313C12.4706 9.19681 13.5819 8.84382 14.7213 8.84231ZM26.5269 19.9825C26.5269 19.5824 26.5092 19.1856 26.4761 18.7899H23.2111V19.8952C23.2111 20.1883 23.0946 20.4695 22.8873 20.6768C22.6801 20.884 22.3989 21.0005 22.1058 21.0005C21.8126 21.0005 21.5315 20.884 21.3242 20.6768C21.1169 20.4695 21.0005 20.1883 21.0005 19.8952V18.7899H13.2635V19.8952C13.2635 20.1883 13.147 20.4695 12.9397 20.6768C12.7325 20.884 12.4513 21.0005 12.1582 21.0005C11.865 21.0005 11.5839 20.884 11.3766 20.6768C11.1693 20.4695 11.0529 20.1883 11.0529 19.8952V18.7899H7.78786C7.59071 19.7367 7.69264 20.7213 8.07955 21.6076C8.46647 22.4939 9.11925 23.2381 9.9476 23.7372V24.3164C9.9476 24.9026 10.1805 25.4649 10.5951 25.8795C11.0096 26.294 11.5719 26.5269 12.1582 26.5269C12.7445 26.5269 13.3067 26.294 13.7213 25.8795C14.1359 25.4649 14.3688 24.9026 14.3688 24.3164H19.8952C19.8952 24.9026 20.1281 25.4649 20.5427 25.8795C20.9572 26.294 21.5195 26.5269 22.1058 26.5269C22.6921 26.5269 23.2543 26.294 23.6689 25.8795C24.0835 25.4649 24.3164 24.9026 24.3164 24.3164V23.7372C24.9844 23.3633 25.5412 22.8186 25.9296 22.1589C26.318 21.4992 26.5242 20.7481 26.5269 19.9825ZM17.5874 6.30678L16.6456 3.66735C16.2605 2.59501 15.5542 1.6675 14.6228 1.01122C13.6913 0.354944 12.5802 0.00182929 11.4408 0L6.61847 0C5.47908 0.00182929 4.36796 0.354944 3.43656 1.01122C2.50515 1.6675 1.79876 2.59501 1.41366 3.66735L0.471958 6.30678C0.433273 6.41067 0.411167 6.5212 0.375798 6.63173H17.6846C17.6481 6.5212 17.626 6.41067 17.5874 6.30678ZM5.52644 8.84231V9.9476C5.52644 10.2407 5.40999 10.5219 5.20271 10.7292C4.99543 10.9364 4.7143 11.0529 4.42115 11.0529C4.12801 11.0529 3.84688 10.9364 3.6396 10.7292C3.43232 10.5219 3.31587 10.2407 3.31587 9.9476V8.84231H0.0508433C0.0176846 9.238 0 10.7401 0 11.1402C0.00218868 11.9063 0.208058 12.6581 0.596506 13.3185C0.984954 13.9788 1.54201 14.524 2.21058 14.8982V15.474C2.21482 15.879 2.32985 16.2751 2.54318 16.6193C2.75651 16.9636 3.06001 17.2428 3.42077 17.4269C3.78154 17.6109 4.18579 17.6926 4.58971 17.6633C4.99363 17.6339 5.3818 17.4945 5.71213 17.2602L6.00724 16.0554C6.13948 15.4975 6.30145 14.947 6.49247 14.4063L7.43528 11.7669C7.83168 10.6614 8.47551 9.66102 9.31758 8.84231H5.52644Z"
@@ -127,14 +118,12 @@ const NavTab = () => {
       <Link to="/profile-setting">
         <div
           onClick={() => setActiveTab("Account")}
-          className={`p-2 rounded-full group cursor-pointer transition-all duration-500 ease-in-out ${
-            activeTab === "Account" ? "mb-12 bg-[#fff3] text-blue" : ""
-          }`}
+          className={`p-2 rounded-full group cursor-pointer transition-all duration-500 ease-in-out ${activeTab === "Account" ? "mb-12 bg-[#fff3] text-blue" : ""
+            }`}
         >
           <div
-            className={`rounded-full transition-all duration-500 ease-in-out ${
-              activeTab === "Account" ? "p-4 bg-[#E6F5FD]" : ""
-            }`}
+            className={`rounded-full transition-all duration-500 ease-in-out ${activeTab === "Account" ? "p-4 bg-[#E6F5FD]" : ""
+              }`}
           >
             {" "}
             <svg
@@ -143,9 +132,8 @@ const NavTab = () => {
               viewBox="0 0 27 27"
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
-              className={`${
-                activeTab === "Account" ? "text-blue-500" : "text-[#BEBEBE]"
-              }`}
+              className={`${activeTab === "Account" ? "text-blue-500" : "text-[#BEBEBE]"
+                }`}
             >
               <path
                 d="M9.9476 13.2635C6.2902 13.2635 3.31587 10.2891 3.31587 6.63173C3.31587 2.97433 6.2902 0 9.9476 0C13.605 0 16.5793 2.97433 16.5793 6.63173C16.5793 10.2891 13.605 13.2635 9.9476 13.2635ZM14.6672 21.531C13.7686 22.4296 13.2635 23.6477 13.2635 24.9187V26.5269H14.8717C16.1427 26.5269 17.3608 26.0218 18.2594 25.1232L25.7831 17.5995C26.7745 16.6081 26.7745 14.9988 25.7831 14.0073C24.7916 13.0159 23.1823 13.0159 22.1909 14.0073L14.6672 21.531ZM11.0529 24.9187C11.0529 23.0486 11.7813 21.2901 13.1032 19.9681L15.7294 17.342C14.098 16.1704 12.1051 15.4729 9.9476 15.4729C4.46316 15.474 0 19.9372 0 25.4216C0 26.0318 0.495169 26.5269 1.10529 26.5269H11.0529V24.9187Z"

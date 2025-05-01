@@ -1,36 +1,27 @@
 import axios from "axios";
+import axiosInstance from "./axiosInstance";
 
-const baseUrl = "https://mobile.cova.ai";
+const baseUrl = process.env.REACT_APP_BASE_URL;
 
-let authorization;  // Declare without a type
+let authorization; // Declare without a type
 
 export const token = () => {
-    const accessToken = localStorage.getItem("accessToken");
-    authorization = "Bearer " + accessToken;
+  const accessToken = localStorage.getItem("accessToken");
+  authorization = "Bearer " + accessToken;
 };
 
 export const login = (data) => {
-    const { email, password } = data;
-    return axios.post(`${baseUrl}/auth/login`, {
-        email,
-        password,
-    });
+  const { email, password } = data;
+  return axiosInstance.post(`/api/auth/signin`, { email, password });
 };
 
 export const registeration = (data) => {
-    const { email, password, userName } = data;
-    return axios.post(`${baseUrl}/auth/signup`, {
-        email,
-        userName,
-        password,
-    });
+  const { email, password, name } = data;
+  return axios.post(`${baseUrl}/api/auth/signup`, {
+    email,
+    name,
+    password,
+  });
 };
 
-export const logout = () => {
-    return axios.post(`${baseUrl}/Account/Logout`, null, {
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: authorization,
-        },
-    });
-};
+

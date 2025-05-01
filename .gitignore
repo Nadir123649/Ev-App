@@ -20,7 +20,7 @@ dist/
 *.jar
 
 
-#package.json
+# Ignore package lock file
 package-lock.json
 
 # Maven

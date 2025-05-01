@@ -1,0 +1,24 @@
+[
+    {
+        "id": "1",
+        "name": "Emporium - Mall",
+        "address": "Lahore",
+        "lat": 31.4679,
+        "lng": 74.2660,
+        "connectors": [
+            "Type2",
+            "CCS"
+        ]
+    },
+    {
+        "id": "2",
+        "name": "EV Charger - Airport",
+        "address": "Airport Rd, Lahore",
+        "lat": 31.521,
+        "lng": 74.4001,
+        "connectors": [
+            "CHAdeMO",
+            "CCS"
+        ]
+    }
+]

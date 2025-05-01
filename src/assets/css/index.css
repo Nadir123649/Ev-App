@@ -74,3 +74,14 @@ body {
   color: #0A0A0C;
 }
 
+
+
+.red-marker-icon {
+  width: 25px;
+  height: 41px;
+  background-color: red;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  position: relative;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}

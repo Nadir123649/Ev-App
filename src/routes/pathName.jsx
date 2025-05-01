@@ -1,7 +1,8 @@
 const login = "/";
 const singup = "/singup";
 const home = "/home";
-const stationview = "/station-view";
+const stationview = "/station-view/:id";
+const tracking = "/tracking/:id";
 const addnew = "/add-new";
 const profilesetting = "/profile-setting";
 const accountsetting = "/account-setting";
@@ -20,4 +21,5 @@ export {
   charginghistory,
   edithistory,
   cardetails,
+  tracking,
 };
